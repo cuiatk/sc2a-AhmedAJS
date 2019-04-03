@@ -39,6 +39,21 @@ public class FilterTest {
     }
     
     @Test
+    public void testWrittenByMultipleTweetsNoResult() {
+        List<Tweet> writtenBy = Filter.writtenBy(Arrays.asList(tweet1, tweet2), "ahmed");
+        
+        assertTrue("expected list to empty", writtenBy.isEmpty());
+    }
+    
+    @Test
+    public void emptyList() {
+        List<Tweet> writtenBy = Filter.writtenBy(Arrays.asList(tweet1, tweet2), "alyssa");
+     
+       writtenBy.isEmpty();
+    }
+    
+    
+    @Test
     public void testInTimespanMultipleTweetsMultipleResults() {
         Instant testStart = Instant.parse("2016-02-17T09:00:00Z");
         Instant testEnd = Instant.parse("2016-02-17T12:00:00Z");
